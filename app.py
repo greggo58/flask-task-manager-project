@@ -12,7 +12,9 @@ def hello():
     return "Hello World...again!"
 
 
-if "__name__" == "__main__":
+print(os.environ.get("IP"), int(os.environ.get("PORT")))
+
+if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
