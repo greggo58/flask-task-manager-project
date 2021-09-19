@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 
+<ul class="collapsible popout">
     {% for task in tasks %}
-        {{ task.task_name }}<br>
-        {{ task.category_name }}<br>
-        {{ task.task_description }}<br>
-        {{ task.is_urgent }}<br>
-        {{ task.due_date }}<br>
+    <li>
+        <div class="collapsible-header white-text deep-purple darken-4 text-shadow"><i
+                class="material-icons">arrow_drop_down</i>
+            <strong>{{ task.task_name }}</strong> : {{ task.due_date }}&nbsp;&nbsp;&nbsp;
+            {% if task.is_urgent == "on" %}
+                <i class="material-icons white-text text-darken-4 tooltipped" data-position="right" data-tooltip="Urgent">warning</i>
+            {% endif %}
+        </div>
+        <div class="collapsible-body">
+            <strong>{{ task.category_name }}</strong>
+            <p>{{ task.task_description }}</p>
+        </div>
+    </li>
     {% endfor %}
-
-    <ul class="collapsible popout">
-        <li>
-          <div class="collapsible-header white-text deep-purple darken-4 text-shadow"><i class="material-icons">filter_drama</i>First</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-      </ul>
+</ul>
 
 {% endblock %}
