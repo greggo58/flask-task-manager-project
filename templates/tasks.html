@@ -3,23 +3,30 @@
 
 <h3 class="deep-purple-text text-darken-4 center-align">All Tasks</h3>
 
-    <ul class="collapsible popout">
-        {% for task in tasks %}
-        <li>
-            <div class="collapsible-header white-text deep-purple darken-4 text-shadow"><i
-                    class="material-icons">arrow_drop_down</i>
+<ul class="collapsible popout">
+    {% for task in tasks %}
+    <li>
+        <div class="collapsible-header white-text deep-purple darken-4 text-shadow">
+            <div class="col s3">
+                <i class="material-icons">arrow_drop_down</i>
+                <a href="" class="btn-small green accent-4">Done</a>
+                <a href="" class="btn-small orange accent-4">Edit</a>
+            </div>
+            <div class="col s9">
                 <strong>{{ task.task_name }}</strong> : {{ task.due_date }}&nbsp;&nbsp;&nbsp;
                 {% if task.is_urgent == "on" %}
-                    <i class="material-icons white-text text-darken-4 tooltipped" data-position="right" data-tooltip="Urgent">warning</i>
+                <i class="material-icons white-text text-darken-4 tooltipped" data-position="right"
+                    data-tooltip="Urgent">warning</i>
                 {% endif %}
             </div>
-            <div class="collapsible-body">
-                <strong>{{ task.category_name }}</strong>
-                <p>{{ task.task_description }}</p>
-                <p><em>Created by: {{ task.created_by }}</em></p>
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
+        </div>
+        <div class="collapsible-body">
+            <strong>{{ task.category_name }}</strong>
+            <p>{{ task.task_description }}</p>
+            <p><em>Created by: {{ task.created_by }}</em></p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
 
 {% endblock %}
