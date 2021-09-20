@@ -4,6 +4,13 @@
     <h3 class="deep-purple-text text-darken-4 center-align">Manage Categories</h3>
 
     <div class="row">
+        <div class="co s12 center-align">
+            <a href="{{ url_for('add_category') }}" class="btn-large deep-purple darken-4 text-shadow">Add Category&nbsp;&nbsp;&nbsp;<i
+                class="material-icons white-text text-darken-4">library_add</i></button></a>
+        </div>
+    </div>
+
+    <div class="row">
         {% for category in categories %}
         <div class="col s12 m3">
             <div class="card deep-purple darken-4 text-shadow center-align">
